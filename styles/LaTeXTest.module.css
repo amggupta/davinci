@@ -1,0 +1,101 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inputSection {
+  margin-bottom: 20px;
+}
+
+.latexInput {
+  width: 100%;
+  padding: 12px;
+  font-family: monospace;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  margin-bottom: 12px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.radioGroup label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.renderButton {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.renderButton:hover {
+  background-color: #0060df;
+}
+
+.outputSection {
+  margin-bottom: 20px;
+}
+
+.outputContainer {
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 4px;
+  min-height: 100px;
+}
+
+.inlineOutput, .blockOutput {
+  overflow-x: auto;
+}
+
+.error {
+  color: #e53e3e;
+  background-color: #fff5f5;
+  padding: 12px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.examples h3 {
+  margin-bottom: 12px;
+}
+
+.examples ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.examples li {
+  background-color: #f0f7ff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.examples li:hover {
+  background-color: #e0f0ff;
+} 

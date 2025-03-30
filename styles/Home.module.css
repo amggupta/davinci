@@ -1,0 +1,41 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4px;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #666;
+}
+
+.error {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff5f5;
+  color: #e53e3e;
+  border-radius: 8px;
+  margin: 40px 0;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 40px 0;
+}
+
+/* Remove any unused styles */ 

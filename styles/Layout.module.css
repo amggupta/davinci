@@ -1,0 +1,36 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #eaeaea;
+  margin-top: 40px;
+}
+
+.appName {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.highlight {
+  color: #0070f3;
+  font-weight: 600;
+} 

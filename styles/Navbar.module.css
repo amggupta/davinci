@@ -1,0 +1,61 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 24px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.appName {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+}
+
+.highlight {
+  color: #0070f3;
+  font-weight: 600;
+}
+
+.highlight2 {
+  color: #f39600;
+  font-weight: 600;
+}
+
+.viewSelectorContainer {
+  display: flex;
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.navLinks a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navLinks a:hover {
+  color: #0070f3;
+} 
