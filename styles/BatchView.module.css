@@ -1,0 +1,219 @@
+.batchView {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.batchControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.actionButton {
+  padding: 8px 16px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.actionButton:hover {
+  background-color: #0060d9;
+}
+
+.actionButton:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.filterControl {
+  display: flex;
+  align-items: center;
+}
+
+.filterSelect {
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.figuresTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.figuresTable th,
+.figuresTable td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.figuresTable th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.checkboxColumn {
+  width: 40px;
+}
+
+.imageColumn {
+  width: 80px;
+}
+
+.assetIdColumn {
+  width: 120px;
+}
+
+.statusColumn {
+  width: 100px;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.noImage {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.selectedRow {
+  background-color: #f0f7ff;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.processing {
+  background-color: #ffab00;
+  color: #fff;
+}
+
+.complete {
+  background-color: #00c853;
+  color: #fff;
+}
+
+.error {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.pending {
+  background-color: #e0e0e0;
+  color: #666;
+}
+
+.selectionInfo {
+  font-size: 14px;
+  color: #666;
+  padding: 10px 0;
+}
+
+.processingStatus {
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.processingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.progressInfo {
+  font-weight: normal;
+  color: #666;
+}
+
+.currentBatch {
+  margin-bottom: 12px;
+}
+
+.batchHeader {
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.batchItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.batchItem {
+  padding: 4px 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.processing {
+  color: #ff8f00;
+  animation: pulse 1.5s infinite;
+}
+
+.progressBar {
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: #0070f3;
+  transition: width 0.3s ease;
+}
+
+.noItems {
+  text-align: center;
+  padding: 32px;
+  color: #666;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+} 
