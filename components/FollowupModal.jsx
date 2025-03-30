@@ -174,15 +174,18 @@ const FollowupModal = ({
         // Try to extract SVG
         const svgMatch = data.assistantResponse.match(/<svg[\s\S]*?<\/svg>/i);
         if (svgMatch) {
-          setGeneratedSvg(svgMatch[0]);
-          console.log('Putting up this SVG in dialog ..Generated SVG:', svgMatch[0]);
+          const extractedSvg = svgMatch[0];
+          setGeneratedSvg(extractedSvg);
+          console.log('Extracted SVG from response:', extractedSvg.substring(0, 100) + '...');
         } else {
+          console.log('No SVG pattern found in response');
           setGeneratedSvg(data.assistantResponse);
         }
       }
       
-      // Make sure you set generatedSVG here, not just currentSVG
-      setCurrentSvg(data.svg);
+      // Don't set currentSvg here unless it's what you want to update
+      // Remove or comment out this line if it's causing confusion:
+      // setCurrentSvg(data.svg);
     } catch (error) {
       console.error('Error sending message:', error);
       setError(error.message || 'Failed to send message');
@@ -209,11 +212,11 @@ const FollowupModal = ({
 
   const handleSvgUpdate = useCallback((svgContent) => {
     // Log the incoming data
-    console.log('handleSvgUpdate called with:', svgContent);
+    console.log('handleSvgUpdate called with:', svgContent ? svgContent.substring(0, 100) + '...' : 'null');
     console.log('followupType:', type);
     
     if (!svgContent || !type) {
-      console.error('Missing required data for update:', { svgContent, type });
+      console.error('Missing required data for update:', { svgContent: !!svgContent, type });
       return;
     }
     
@@ -254,6 +257,25 @@ const FollowupModal = ({
       console.error('Error updating SVG:', error);
     });
   }, [figure._id, type, onUpdate, onClose]);
+
+  // Handle accepting the generated SVG
+  const handleAccept = useCallback(() => {
+    if (!generatedSvg) {
+      console.error('No generated SVG content available to save');
+      setError('No SVG content to save');
+      return;
+    }
+    
+    console.log('Accept button clicked');
+    console.log('Generated SVG state:', generatedSvg ? generatedSvg.substring(0, 100) + '...' : 'null');
+    
+    if (generatedSvg) {
+      console.log('Sending generatedSvg to update');
+      onUpdate(generatedSvg);
+    } else {
+      console.error('No generated SVG content available to save');
+    }
+  }, [generatedSvg, onUpdate]);
 
   return (
     <Modal isOpen={isOpen} onClose={handleClose} disableClose={processingSubmission}>
@@ -363,14 +385,7 @@ const FollowupModal = ({
             </button>
             <button 
               className={styles.acceptButton}
-              onClick={() => {
-                console.log('Accept button clicked with SVG content:', generatedSvg);
-                if (generatedSvg) {
-                  onUpdate(generatedSvg);
-                } else {
-                  console.error('No generated SVG content available to save');
-                }
-              }}
+              onClick={handleAccept}
               disabled={!generatedSvg || processingSubmission}
             >
               Accept

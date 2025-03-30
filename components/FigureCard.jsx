@@ -193,6 +193,7 @@ const FigureCard = ({ figure, onUpdate }) => {
   }, []);
   
   const handleSvgUpdate = useCallback((svgContent) => {
+    console.log('FigureCard.handleSvgUpdate called with SVG content');
     if (!svgContent || !followupType || !onUpdate) return;
     
     const updateData = {
@@ -464,23 +465,25 @@ const FigureCard = ({ figure, onUpdate }) => {
         </div>
       </div>
       
-      <FollowupModal
-        isOpen={showFollowupModal}
-        figure={figure}
-        type={followupType}
-        onClose={handleCloseModal}
-        onAccept={handleSvgUpdate}
-        assistantId={SVG_ASSISTANT_ID}
-        threadId={followupType === 'withImage' 
-          ? figure.asst_thread_id_svg_gen_with_image 
-          : figure.asst_thread_id_svg_gen_txt_only}
-        currentSvg={followupType === 'withImage' 
-          ? figure.output_svg_with_image 
-          : figure.output_svg_txt_only}
-        instructions={followupType === 'withImage' 
-          ? figure.instructions_with_image 
-          : figure.Instruction_txt_only}
-      />
+      {showFollowupModal && (
+        <FollowupModal
+          isOpen={showFollowupModal}
+          onClose={handleCloseModal}
+          figure={figure}
+          type={followupType}
+          onUpdate={handleSvgUpdate}
+          assistantId={SVG_ASSISTANT_ID}
+          threadId={followupType === 'withImage' 
+            ? figure.asst_thread_id_svg_gen_with_image 
+            : figure.asst_thread_id_svg_gen_txt_only}
+          currentSvg={followupType === 'withImage' 
+            ? figure.output_svg_with_image 
+            : figure.output_svg_txt_only}
+          instructions={followupType === 'withImage' 
+            ? figure.instructions_with_image 
+            : figure.Instruction_txt_only}
+        />
+      )}
     </div>
   );
 };
